@@ -14,9 +14,19 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-camera.position.setX(0);
-camera.position.setY(5);
-camera.position.setZ(35);
+function updateCamera() {
+  const aspectRatio = window.innerWidth / window.innerHeight;
+  camera.aspect = aspectRatio;
+
+  if(camera.aspect < 1) {
+    camera.position.set(0, 1, 50);
+  } else {
+    camera.position.set(0, 1, 35);
+  } 
+  camera.updateProjectionMatrix();
+}
+
+updateCamera();
 
 renderer.render(scene, camera);
 
@@ -73,3 +83,5 @@ function animate () {
 }
 
 animate();
+
+window.addEventListener('resize', updateCamera);
