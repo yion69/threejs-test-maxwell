@@ -61,3 +61,20 @@ main h1 {
   width: 1.2rem;
   height: 1.2rem;
 }
+
+@media screen and (max-width: 600px) {
+  main h1 {
+    font-size: 1.2rem;
+  }
+  .links-container a {
+    width: fit-content;
+    height: fit-content;
+    padding: 4px;
+    font-size: 1rem;
+  }
+  .links-container a svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+}
